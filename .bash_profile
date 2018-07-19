@@ -24,3 +24,8 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # postgresql base directory
 export PGDATA=/usr/local/var/postgres
+
+export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
+
+# VPN client path
+export PATH=/usr/local/vpnclient:$PATH
