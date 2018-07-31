@@ -29,3 +29,6 @@ export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
 
 # VPN client path
 export PATH=/usr/local/vpnclient:$PATH
+
+# Erlang man path
+export MANPATH=/usr/local/opt/erlang/lib/erlang/man:$MANPATH
