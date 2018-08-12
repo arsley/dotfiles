@@ -20,6 +20,6 @@
     "semi": "warn",
     "arrow-body-style": "warn",
     "comma-dangle": "warn",
-    "no-plusplus": "off"
+    "no-plusplus": ["warn", { "allowForLoopAfterthoughts": true }]
   }
 }
