@@ -19,6 +19,7 @@
     "react/react-in-jsx-scope": "off",
     "semi": "warn",
     "arrow-body-style": "warn",
-    "comma-dangle": "warn"
+    "comma-dangle": "warn",
+    "no-plusplus": "off"
   }
 }
