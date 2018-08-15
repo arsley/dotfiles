@@ -20,6 +20,7 @@
     "semi": "warn",
     "arrow-body-style": "warn",
     "comma-dangle": "warn",
-    "no-plusplus": ["warn", { "allowForLoopAfterthoughts": true }]
+    "no-plusplus": ["warn", { "allowForLoopAfterthoughts": true }],
+    "react/display-name": "off"
   }
 }
