@@ -104,3 +104,6 @@ function tec() { find . -type 'f' -d 1 | grep -v *.tex | xargs rm }
 # OPAM configuration
 . /Users/aoshi/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 eval `opam config env`
+
+# `go build`
+function bo() { go build . }
