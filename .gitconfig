@@ -1,0 +1,15 @@
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[user]
+	name = assly
+	email = blue20will@gmail.com
+[core]
+	editor = vi
+[alias]
+	unstage = "reset HEAD -- "
+	cm = commit
+	cko = checkout
+	br = branch
+  cne = "commit --amend --no-edit"
