@@ -47,3 +47,7 @@ nnoremap <silent> <C-b><C-p> :bprev<CR>
 nnoremap <silent> <C-b><C-n> :bnext<CR>
 nnoremap <silent> <C-b><C-l> :ls<CR>
 nnoremap <silent> <C-k><C-t> :NERDTreeToggle<CR>
+nnoremap <silent> <C-m><C-l> :wincmd l<CR>
+nnoremap <silent> <C-m><C-h> :wincmd h<CR>
+nnoremap <silent> <C-m><C-j> :wincmd j<CR>
+nnoremap <silent> <C-m><C-k> :wincmd k<CR>
