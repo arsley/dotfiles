@@ -12,8 +12,6 @@ export MANPATH=/usr/local/texlive/2018/texmf-dist/doc/man:$MANPATH
 export ANDROID_HOME=/usr/local/Caskroom/android-sdk/25.2.3
 export JAVA_HOME=/Library/Java/Home
 
-export PATH="$HOME/.pyenv/shims:$PATH"
-
 # Go lang's paths
 export GOPATH=$HOME/go
 export GOROOT=/usr/local/opt/go/libexec
@@ -32,3 +30,4 @@ export PATH=/usr/local/vpnclient:$PATH
 
 # Erlang man path
 export MANPATH=/usr/local/opt/erlang/lib/erlang/man:$MANPATH
+

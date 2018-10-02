@@ -89,7 +89,12 @@ source $HOME/.bash_profile
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# rbenv
 eval "$(rbenv init -)"
+
+#pyenv
+export PATH="$HOME/.pyenv/shims:$PATH"
+eval "$(pyenv init -)"
 
 # nice wildcards (negation is ^)
 setopt extended_glob
