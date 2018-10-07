@@ -112,3 +112,6 @@ eval `opam config env`
 
 # `go build`
 function bo() { go build . }
+
+# `bundle exec`
+function be() { bundle exec $* }
