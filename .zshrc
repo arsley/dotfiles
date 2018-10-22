@@ -115,3 +115,6 @@ function bo() { go build . }
 
 # `bundle exec`
 function be() { bundle exec $* }
+
+# `make ...`
+function mk() { make $* }
