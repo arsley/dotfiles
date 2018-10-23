@@ -1,0 +1,5 @@
+#!/bin/sh
+
+for dotfile in `find .* -maxdepth 0 -type f`; do
+  ln -sf `pwd`/$dotfile $HOME;
+done
