@@ -14,3 +14,6 @@
 	br = branch
   cne = "commit --amend --no-edit"
   cam = "commit --amend"
+[color]
+  diff = auto
+  status = auto
