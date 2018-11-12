@@ -50,4 +50,13 @@ function bo() { go build . }
 function be() { bundle exec $* }
 
 # `make ...`
-function mk() { make $* }
+function m() { make $* }
+
+# `docker ...`
+function d() { docker $* }
+
+# `docker-compose ...`
+function dc() { docker-compose $* }
+
+# added by travis gem
+[ -f /Users/aoshi/.travis/travis.sh ] && source /Users/aoshi/.travis/travis.sh
