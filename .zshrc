@@ -53,10 +53,10 @@ function be() { bundle exec $* }
 function m() { make $* }
 
 # `docker ...`
-function d() { docker $* }
+function dc() { docker $* }
 
 # `docker-compose ...`
-function dc() { docker-compose $* }
+function dcc() { docker-compose $* }
 
 # added by travis gem
 [ -f /Users/aoshi/.travis/travis.sh ] && source /Users/aoshi/.travis/travis.sh
