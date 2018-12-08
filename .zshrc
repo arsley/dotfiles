@@ -19,6 +19,17 @@ typeset -T CPATH cpath; typeset -U cpath
 source $ZSH/oh-my-zsh.sh
 source $HOME/.bash_profile
 
+# add vi extension for zsh
+bindkey -v
+function zle-line-init zle-keymap-select {
+    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+    RPS2=$RPS1
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+bindkey '^x' vi-cmd-mode
+
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
@@ -58,5 +69,17 @@ function dc() { docker $* }
 # `docker-compose ...`
 function dcc() { docker-compose $* }
 
+# `kubernetes-cli ...`
+function kcl() { kubectl $* }
+function kcx() { kubectx $* }
+function kns() { kubens $* }
+
 # added by travis gem
 [ -f /Users/aoshi/.travis/travis.sh ] && source /Users/aoshi/.travis/travis.sh
+
+# HSTR configuration - add this to ~/.bashrc
+function h() { hstr }
+export HISTFILE=~/.zsh_history
+export HSTR_CONFIG=hicolor,raw-history-view
+bindkey -s "\C-r" "hstr --\n"
+
