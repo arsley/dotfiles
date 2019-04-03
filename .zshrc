@@ -74,12 +74,20 @@ function kcl() { kubectl $* }
 function kcx() { kubectx $* }
 function kns() { kubens $* }
 
+# `brew ...`
+alias b=brew
+
+# `vim ...`
+alias v=vim
+
 # added by travis gem
 [ -f /Users/aoshi/.travis/travis.sh ] && source /Users/aoshi/.travis/travis.sh
 
 # HSTR configuration - add this to ~/.bashrc
-function h() { hstr }
+alias h=hstr
 export HISTFILE=~/.zsh_history
 export HSTR_CONFIG=hicolor,raw-history-view
 bindkey -s "\C-r" "hstr --\n"
 
+# hub aliases
+eval "$(hub alias -s)"
