@@ -1,5 +1,4 @@
-export ZSH=/Users/aoshi/.oh-my-zsh
-# export ZSH="/home/arsley/.oh-my-zsh"
+export ZSH=/Users/arsley/.oh-my-zsh
 
 ZSH_THEME="robbyrussell"
 # ZSH_THEME="cloud"
@@ -8,7 +7,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/var:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 typeset -U path cdpath fpath manpath
 export MANPATH="/usr/local/man:$MANPATH"
 
@@ -17,7 +16,6 @@ typeset -T LIBRARY_PATH library_path; typeset -U library_path
 typeset -T CPATH cpath; typeset -U cpath
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.bash_profile
 
 # add vi extension for zsh
 bindkey -v
@@ -33,10 +31,13 @@ bindkey '^x' vi-cmd-mode
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# nodebrew
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+
 # rbenv
 eval "$(rbenv init -)"
 
-#pyenv
+# pyenv
 export PATH="$HOME/.pyenv/shims:$PATH"
 eval "$(pyenv init -)"
 
@@ -47,12 +48,17 @@ setopt extended_glob
 # mkdir + cd
 function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
+# LaTeX path
+export PATH=/usr/local/texlive/2018/bin/x86_64-darwin:$PATH
+export MANPATH=/usr/local/texlive/2018/texmf-dist/doc/man:$MANPATH
+
 # TeX Clear
 function tec() { find . -type 'f' -d 1 | grep -v *.tex | xargs rm }
 
-# OPAM configuration
-. /Users/aoshi/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-eval `opam config env`
+# Go lang's paths
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # `go build`
 function bo() { go build . }
@@ -69,19 +75,14 @@ function dc() { docker $* }
 # `docker-compose ...`
 function dcc() { docker-compose $* }
 
-# `kubernetes-cli ...`
-function kcl() { kubectl $* }
-function kcx() { kubectx $* }
-function kns() { kubens $* }
-
 # `brew ...`
 alias b=brew
 
 # `vim ...`
 alias v=vim
 
-# added by travis gem
-[ -f /Users/aoshi/.travis/travis.sh ] && source /Users/aoshi/.travis/travis.sh
+# `clear`
+alias c=clear
 
 # HSTR configuration - add this to ~/.bashrc
 alias h=hstr
@@ -89,5 +90,14 @@ export HISTFILE=~/.zsh_history
 export HSTR_CONFIG=hicolor,raw-history-view
 bindkey -s "\C-r" "hstr --\n"
 
-# hub aliases
-eval "$(hub alias -s)"
+# VPN client path
+export PATH=/usr/local/vpnclient:$PATH
+
+# Mono (C# environment path)
+export PATH=$PATH:/Library/Frameworks/Mono.framework/Versions/Current/bin
+
+# Flutter PATH
+export PATH=$PATH:/usr/local/flutter/bin
+
+# added by travis gem
+[ -f /Users/arsley/.travis/travis.sh ] && source /Users/arsley/.travis/travis.sh

@@ -17,11 +17,11 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/Users/aoshi/.vim/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=/Users/arsley/.vim/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/Users/aoshi/.vim/dein')
-  call dein#begin('/Users/aoshi/.vim/dein')
+if dein#load_state('/Users/arsley/.vim/dein')
+  call dein#begin('/Users/arsley/.vim/dein')
 
   " Plugins here...
   call dein#add('scrooloose/nerdtree')
