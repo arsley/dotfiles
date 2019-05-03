@@ -48,10 +48,6 @@ setopt extended_glob
 # mkdir + cd
 function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
-# LaTeX path
-export PATH=/usr/local/texlive/2018/bin/x86_64-darwin:$PATH
-export MANPATH=/usr/local/texlive/2018/texmf-dist/doc/man:$MANPATH
-
 # TeX Clear
 function tec() { find . -type 'f' -d 1 | grep -v *.tex | xargs rm }
 
@@ -83,6 +79,9 @@ alias v=vim
 
 # `clear`
 alias c=clear
+
+# `exit`
+alias e=exit
 
 # HSTR configuration - add this to ~/.bashrc
 alias h=hstr
