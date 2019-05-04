@@ -100,3 +100,8 @@ export PATH=$PATH:/usr/local/flutter/bin
 
 # added by travis gem
 [ -f /Users/arsley/.travis/travis.sh ] && source /Users/arsley/.travis/travis.sh
+
+# configuration for R Markdown
+export PATH=$PATH:/Applications/RStudio.app/Contents/MacOS/pandoc
+function rmd2pdf() { R -q -e "rmarkdown::render('$1', output_format = 'pdf_document')" }
+
