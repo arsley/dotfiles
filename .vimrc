@@ -9,7 +9,7 @@ set backspace=2
 set hidden
 
 set nocompatible
-filetype off
+filetype on
 
 "dein Scripts-----------------------------
 if &compatible
@@ -25,6 +25,7 @@ if dein#load_state('/Users/arsley/.vim/dein')
 
   " Plugins here...
   call dein#add('scrooloose/nerdtree')
+  call dein#add('scrooloose/nerdcommenter')
 
   " Required:
   call dein#end()
@@ -51,3 +52,7 @@ nnoremap <silent> <C-m><C-l> :wincmd l<CR>
 nnoremap <silent> <C-m><C-h> :wincmd h<CR>
 nnoremap <silent> <C-m><C-j> :wincmd j<CR>
 nnoremap <silent> <C-m><C-k> :wincmd k<CR>
+
+" NERD Commenter
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
