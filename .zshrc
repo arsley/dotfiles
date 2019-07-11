@@ -52,7 +52,7 @@ function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 function tec() { find . -type 'f' -d 1 | grep -v *.tex | xargs rm }
 
 # Go lang's paths
-export GOPATH=$HOME/go
+export GOPATH=$HOME/.go
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
