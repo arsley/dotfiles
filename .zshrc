@@ -46,7 +46,7 @@ setopt extended_glob
 
 # utils
 # mkdir + cd
-function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
 # TeX Clear
 function tec() { find . -type 'f' -d 1 | grep -v *.tex | xargs rm }

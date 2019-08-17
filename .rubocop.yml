@@ -18,3 +18,9 @@ Metrics/MethodLength:
   Enabled: false
 Bundler/OrderedGems:
   Enabled: false
+Metrics/LineLength:
+  Max: 100
+
+AllCops:
+  Exclude:
+    - 'app/views/**/*.slim'
