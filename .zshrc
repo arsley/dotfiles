@@ -1,4 +1,4 @@
-export ZSH=/Users/arsley/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="robbyrussell"
 # ZSH_THEME="cloud"
@@ -105,3 +105,5 @@ export PATH=$PATH:/usr/local/flutter/bin
 export PATH=$PATH:/Applications/RStudio.app/Contents/MacOS/pandoc
 function rmd2pdf() { R -q -e "rmarkdown::render('$1', output_format = 'pdf_document')" }
 
+# github/hub
+alias git=hub
