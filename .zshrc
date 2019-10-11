@@ -31,22 +31,10 @@ bindkey '^x' vi-cmd-mode
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# nodebrew
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-
-# rbenv
-eval "$(rbenv init -)"
-
-# pyenv
-export PATH="$HOME/.pyenv/shims:$PATH"
-eval "$(pyenv init -)"
-
 # nice wildcards (negation is ^)
 setopt extended_glob
 
 # utils
-# mkdir + cd
-function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
 # TeX Clear
 function tec() { find . -type 'f' -d 1 | grep -v *.tex | xargs rm }
@@ -92,9 +80,6 @@ bindkey -s "\C-r" "hstr --\n"
 # VPN client path
 export PATH=/usr/local/vpnclient:$PATH
 
-# Mono (C# environment path)
-export PATH=$PATH:/Library/Frameworks/Mono.framework/Versions/Current/bin
-
 # Flutter PATH
 export PATH=$PATH:/usr/local/flutter/bin
 
@@ -107,3 +92,7 @@ function rmd2pdf() { R -q -e "rmarkdown::render('$1', output_format = 'pdf_docum
 
 # github/hub
 alias git=hub
+
+# asdf configuration
+. /usr/local/opt/asdf/asdf.sh
+. /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
