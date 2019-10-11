@@ -1,23 +1,15 @@
 {
-  "parser": "babel-eslint",
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended",
     "airbnb-base"
   ],
   "parserOptions": {
-    "ecmaVersion": 7,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true,
-      "experimentalObjectRestSpread": true
-    }
+    "ecmaVersion": 2018,
+    "sourceType": "module"
   },
   "rules": {
     "no-unused-vars": "warn",
     "no-console": "off",
-    "react/prop-types": "warn",
-    "react/react-in-jsx-scope": "off",
     "semi": "warn",
     "arrow-body-style": "warn",
     "comma-dangle": "warn",
