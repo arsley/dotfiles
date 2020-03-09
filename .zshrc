@@ -50,6 +50,9 @@ function bo() { go build . }
 # `bundle exec`
 function be() { bundle exec $* }
 
+# `bundle exec rails`
+function ber() { bundle exec rails $* }
+
 # `make ...`
 function m() { make $* }
 
@@ -70,6 +73,9 @@ alias c=clear
 
 # `exit`
 alias e=exit
+
+# `zathura --fork hoge.pdf` as `pdf hoge.pdf`
+function pdf() { zathura --fork $1 }
 
 # HSTR configuration - add this to ~/.bashrc
 alias h=hstr
@@ -96,3 +102,13 @@ alias git=hub
 # asdf configuration
 . /usr/local/opt/asdf/asdf.sh
 . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/arsley/.google-cloud-sdk/path.zsh.inc' ]; then . '/Users/arsley/.google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/arsley/.google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/arsley/.google-cloud-sdk/completion.zsh.inc'; fi
+
+# temporary configurations on zeals
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
