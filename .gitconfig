@@ -3,7 +3,7 @@
   smudge = git lfs smudge %f
   required = true
 [user]
-  name = arsley
+  name = Aoshi Fujioka
   email = blue20will@gmail.com
 [core]
   editor = vi
