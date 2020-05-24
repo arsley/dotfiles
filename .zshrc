@@ -3,7 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 # ZSH_THEME="cloud"
 
-plugins=(git)
+plugins=(git asdf)
 
 # User configuration
 
@@ -99,9 +99,12 @@ function rmd2pdf() { R -q -e "rmarkdown::render('$1', output_format = 'pdf_docum
 # github/hub
 alias git=hub
 
-# asdf configuration
-. /usr/local/opt/asdf/asdf.sh
-. /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
+# asdf completation
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit
+compinit
 
 # openssl pkg-config path
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/opt/openssl/lib/pkgconfig
