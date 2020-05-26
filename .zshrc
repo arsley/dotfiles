@@ -117,3 +117,6 @@ if [ -f '/Users/arsley/.google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/a
 
 # temporary configurations on zeals
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
+# alias crystal
+alias cr=crystal
