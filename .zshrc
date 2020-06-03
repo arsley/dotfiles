@@ -4,7 +4,6 @@ ZSH_THEME="robbyrussell"
 # ZSH_THEME="cloud"
 
 plugins=(git asdf)
-
 # User configuration
 
 export PATH="/usr/local/var:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
@@ -102,12 +101,9 @@ alias git=hub
 # asdf completation
 # append completions to fpath
 fpath=(${ASDF_DIR}/completions $fpath)
-# initialise completions with ZSH's compinit
-autoload -Uz compinit
-compinit
 
 # openssl pkg-config path
-export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/opt/openssl/lib/pkgconfig
+export PKG_CONFIG_PATH='/usr/local/opt/openssl/lib/pkgconfig'
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/arsley/.google-cloud-sdk/path.zsh.inc' ]; then . '/Users/arsley/.google-cloud-sdk/path.zsh.inc'; fi
@@ -119,4 +115,10 @@ if [ -f '/Users/arsley/.google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/a
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 # alias crystal
+# and crystal's completation
 alias cr=crystal
+fpath=(/usr/local/share/zsh/site-functions $fpath)
+
+# initialise completions with ZSH's compinit
+autoload -Uz compinit
+compinit
