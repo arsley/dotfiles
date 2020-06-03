@@ -119,6 +119,9 @@ export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 alias cr=crystal
 fpath=(/usr/local/share/zsh/site-functions $fpath)
 
+# alias lucky
+alias lu=lucky
+
 # initialise completions with ZSH's compinit
 autoload -Uz compinit
 compinit
