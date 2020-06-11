@@ -42,6 +42,7 @@ function tec() { find . -type 'f' -d 1 | grep -v *.tex | xargs rm }
 export GOPATH=$HOME/.go
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export GO111MODULE=on
 
 # `go build`
 function bo() { go build . }
@@ -65,7 +66,7 @@ function dcc() { docker-compose $* }
 alias b=brew
 
 # `vim ...`
-alias v=vim
+alias v=/usr/local/Cellar/vim/8.2.0950/bin/vim
 
 # `clear`
 alias c=clear
