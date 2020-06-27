@@ -1,7 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="robbyrussell"
-# ZSH_THEME="cloud"
 
 plugins=(git asdf)
 # User configuration
@@ -13,6 +12,16 @@ export MANPATH="/usr/local/man:$MANPATH"
 typeset -T LD_LIBRARY_PATH ld_library_path; typeset -U ld_library_path
 typeset -T LIBRARY_PATH library_path; typeset -U library_path
 typeset -T CPATH cpath; typeset -U cpath
+
+# about completion
+fpath=(/usr/local/share/zsh/site-functions $fpath)
+
+# asdf completion
+fpath=(${ASDF_DIR}/completions $fpath)
+
+# initialise completions with ZSH's compinit
+autoload -Uz compinit
+compinit
 
 source $ZSH/oh-my-zsh.sh
 
@@ -34,9 +43,6 @@ bindkey '^x' vi-cmd-mode
 setopt extended_glob
 
 # utils
-
-# TeX Clear
-function tec() { find . -type 'f' -d 1 | grep -v *.tex | xargs rm }
 
 # Go lang's paths
 export GOPATH=$HOME/.go
@@ -86,9 +92,6 @@ bindkey -s "\C-r" "hstr --\n"
 # VPN client path
 export PATH=/usr/local/vpnclient:$PATH
 
-# Flutter PATH
-export PATH=$PATH:/usr/local/flutter/bin
-
 # added by travis gem
 [ -f /Users/arsley/.travis/travis.sh ] && source /Users/arsley/.travis/travis.sh
 
@@ -98,10 +101,6 @@ function rmd2pdf() { R -q -e "rmarkdown::render('$1', output_format = 'pdf_docum
 
 # github/hub
 alias git=hub
-
-# asdf completation
-# append completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
 
 # openssl pkg-config path
 export PKG_CONFIG_PATH='/usr/local/opt/openssl/lib/pkgconfig'
@@ -116,13 +115,8 @@ if [ -f '/Users/arsley/.google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/a
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 # alias crystal
-# and crystal's completation
 alias cr=crystal
-fpath=(/usr/local/share/zsh/site-functions $fpath)
 
 # alias lucky
 alias lu=lucky
 
-# initialise completions with ZSH's compinit
-autoload -Uz compinit
-compinit
