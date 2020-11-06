@@ -13,6 +13,9 @@ typeset -T LD_LIBRARY_PATH ld_library_path; typeset -U ld_library_path
 typeset -T LIBRARY_PATH library_path; typeset -U library_path
 typeset -T CPATH cpath; typeset -U cpath
 
+setopt append_history
+setopt share_history
+
 # about completion
 fpath=(/usr/local/share/zsh/site-functions $fpath)
 
@@ -91,9 +94,6 @@ bindkey -s "\C-r" "hstr --\n"
 
 # VPN client path
 export PATH=/usr/local/vpnclient:$PATH
-
-# added by travis gem
-[ -f /Users/arsley/.travis/travis.sh ] && source /Users/arsley/.travis/travis.sh
 
 # configuration for R Markdown
 export PATH=$PATH:/Applications/RStudio.app/Contents/MacOS/pandoc
