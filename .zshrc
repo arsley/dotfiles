@@ -120,3 +120,7 @@ alias cr=crystal
 # alias lucky
 alias lu=lucky
 
+# delete merged branches
+function git-delm() {
+  git branch --merged|egrep -v '\*|develop|master'|xargs git branch -d
+}
