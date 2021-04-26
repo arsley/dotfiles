@@ -3,8 +3,8 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 plugins=(git asdf)
-# User configuration
 
+# User configuration
 export PATH="/usr/local/var:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 typeset -U path cdpath fpath manpath
 export MANPATH="/usr/local/man:$MANPATH"
@@ -39,9 +39,6 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 bindkey '^x' vi-cmd-mode
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
 # nice wildcards (negation is ^)
 setopt extended_glob
 
@@ -75,7 +72,7 @@ function dcc() { docker-compose $* }
 alias b=brew
 
 # `vim ...`
-alias v=/usr/local/Cellar/vim/8.2.0950/bin/vim
+alias v=/usr/local/bin/vim
 
 # `clear`
 alias c=clear
@@ -95,24 +92,11 @@ bindkey -s "\C-r" "hstr --\n"
 # VPN client path
 export PATH=/usr/local/vpnclient:$PATH
 
-# configuration for R Markdown
-export PATH=$PATH:/Applications/RStudio.app/Contents/MacOS/pandoc
-function rmd2pdf() { R -q -e "rmarkdown::render('$1', output_format = 'pdf_document')" }
-
 # github/hub
 alias git=hub
 
 # openssl pkg-config path
 export PKG_CONFIG_PATH='/usr/local/opt/openssl/lib/pkgconfig'
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/arsley/.google-cloud-sdk/path.zsh.inc' ]; then . '/Users/arsley/.google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/arsley/.google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/arsley/.google-cloud-sdk/completion.zsh.inc'; fi
-
-# temporary configurations on zeals
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 # alias crystal
 alias cr=crystal
@@ -124,3 +108,14 @@ alias lu=lucky
 function git-delm() {
   git branch --merged|egrep -v '\*|develop|master'|xargs git branch -d
 }
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/arsley/.google-cloud-sdk/path.zsh.inc' ]; then . '/Users/arsley/.google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/arsley/.google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/arsley/.google-cloud-sdk/completion.zsh.inc'; fi
+
+# `kube ...`
+alias kcl=kubectl
+alias kcx=kubectx
+
