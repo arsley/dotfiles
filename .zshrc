@@ -65,8 +65,8 @@ function m() { make $* }
 # `docker ...`
 function dc() { docker $* }
 
-# `docker-compose ...`
-function dcc() { docker-compose $* }
+# `docker compose ...`
+function dcc() { docker compose $* }
 
 # `brew ...`
 alias b=brew
