@@ -58,7 +58,7 @@ let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 
 " fzf
-set rtp+=/usr/local/bin/fzf
+set runtimepath+=/usr/local/opt/fzf
 let g:fzf_preview_window = 'right:60%'
 
 " lightline

@@ -25,6 +25,7 @@ fpath=(${ASDF_DIR}/completions $fpath)
 # initialise completions with ZSH's compinit
 autoload -Uz compinit
 compinit
+autoload -U +X bashcompinit && bashcompinit
 
 source $ZSH/oh-my-zsh.sh
 
@@ -53,11 +54,17 @@ export GO111MODULE=on
 # `go build`
 function bo() { go build . }
 
+# `bundle ...`
+alias b=bundle
+
 # `bundle exec`
 function be() { bundle exec $* }
 
 # `bundle exec rails`
 function ber() { bundle exec rails $* }
+
+# `bundle exec rspec`
+function bers() { bundle exec rspec $* }
 
 # `make ...`
 function m() { make $* }
@@ -68,9 +75,6 @@ function dc() { docker $* }
 # `docker compose ...`
 function dcc() { docker compose $* }
 
-# `brew ...`
-alias b=brew
-
 # `vim ...`
 alias v=/usr/local/bin/vim
 
@@ -80,29 +84,14 @@ alias c=clear
 # `exit`
 alias e=exit
 
-# `zathura --fork hoge.pdf` as `pdf hoge.pdf`
-function pdf() { zathura --fork $1 }
-
 # HSTR configuration - add this to ~/.bashrc
 alias h=hstr
 export HISTFILE=~/.zsh_history
 export HSTR_CONFIG=hicolor,raw-history-view
 bindkey -s "\C-r" "hstr --\n"
 
-# VPN client path
-export PATH=/usr/local/vpnclient:$PATH
-
-# github/hub
-alias git=hub
-
 # openssl pkg-config path
 export PKG_CONFIG_PATH='/usr/local/opt/openssl/lib/pkgconfig'
-
-# alias crystal
-alias cr=crystal
-
-# alias lucky
-alias lu=lucky
 
 # delete merged branches
 function git-delm() {
@@ -119,3 +108,13 @@ if [ -f '/Users/arsley/.google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/a
 alias kcl=kubectl
 alias kcx=kubectx
 
+# alias just
+alias j=just
+
+# enable completation for terraform cmd
+complete -o nospace -C /usr/local/bin/terraform terraform
+
+# enable brew-file wrapper
+if [ -f $(brew --prefix)/etc/brew-wrap ];then
+  source $(brew --prefix)/etc/brew-wrap
+fi
