@@ -118,3 +118,7 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 if [ -f $(brew --prefix)/etc/brew-wrap ];then
   source $(brew --prefix)/etc/brew-wrap
 fi
+
+# modify default Brewfile path
+export HOMEBREW_BREWFILE=$HOME/.brewfile
+

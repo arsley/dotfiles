@@ -1,0 +1,100 @@
+
+# tap repositories and their packages
+
+tap homebrew/core
+brew adns
+brew bdw-gc
+brew berkeley-db
+brew c-ares
+brew circleci
+brew coreutils
+brew fontconfig
+brew freetype
+brew gdbm
+brew gettext
+brew gh
+brew gmp
+brew gnu-sed
+brew gnupg
+brew gnutls
+brew guile
+brew hstr
+brew hub
+brew icu4c
+brew jemalloc
+brew jq
+brew just
+brew krb5
+brew kubectx
+brew kubernetes-cli
+brew libassuan
+brew libev
+brew libevent
+brew libffi
+brew libgcrypt
+brew libgpg-error
+brew libidn2
+brew libksba
+brew libnet
+brew libpng
+brew libtasn1
+brew libtool
+brew libunistring
+brew libusb
+brew libyaml
+brew lua
+brew m4
+brew mas
+brew mpdecimal
+brew ncurses
+brew nettle
+brew nghttp2
+brew npth
+brew nushell
+brew oniguruma
+brew openssl@1.1
+brew p11-kit
+brew pcre2
+brew perl
+brew pinentry
+brew pkg-config
+brew postgresql
+brew python@3.9
+brew qt@5
+brew readline
+brew reattach-to-user-namespace
+brew ripgrep
+brew ruby
+brew sqlite
+brew tcl-tk
+brew tcptraceroute
+brew terraform
+brew tmux
+brew tree
+brew unbound
+brew utf8proc
+brew vim
+brew xpdf
+brew xz
+brew zplug
+
+tap homebrew/bundle
+
+tap homebrew/cask
+cask gitify
+
+tap hashicorp/tap
+
+tap rcmdnk/file
+brew brew-file
+
+# App Store applications
+appstore 682658836   GarageBand  (10.4.3)
+appstore 1444383602  GoodNotes   (5.7.14)
+appstore 408981434   iMovie      (10.2.5)
+appstore 409183694   Keynote     (11.1)
+appstore 539883307   LINE        (7.0.3)
+appstore 409203825   Numbers     (11.1)
+appstore 409201541   Pages       (11.1)
+appstore 1176895641  Spark       (2.10.0)
+appstore 497799835   Xcode       (12.5.1)
