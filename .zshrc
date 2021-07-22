@@ -114,6 +114,9 @@ alias j=just
 # enable completation for terraform cmd
 complete -o nospace -C /usr/local/bin/terraform terraform
 
+# alias terraform cmd
+alias t=terraform
+
 # enable brew-file wrapper
 if [ -f $(brew --prefix)/etc/brew-wrap ];then
   source $(brew --prefix)/etc/brew-wrap
