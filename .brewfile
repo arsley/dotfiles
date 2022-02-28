@@ -3,16 +3,24 @@
 
 tap homebrew/core
 brew adns
+brew assimp
 brew bdw-gc
 brew berkeley-db
+brew brotli
 brew c-ares
+brew ca-certificates
+brew cairo
 brew circleci
 brew coreutils
+brew dbus
+brew double-conversion
 brew fontconfig
 brew freetype
 brew gdbm
 brew gettext
 brew gh
+brew giflib
+brew glib
 brew gmp
 brew gnu-sed
 brew gnupg
@@ -20,14 +28,18 @@ brew gnutls
 brew guile
 brew hstr
 brew hub
+brew hunspell
 brew icu4c
+brew jasper
 brew jemalloc
+brew jpeg
 brew jq
 brew just
 brew krb5
 brew kubectx
 brew kubernetes-cli
 brew libassuan
+brew libb2
 brew libev
 brew libevent
 brew libffi
@@ -35,31 +47,57 @@ brew libgcrypt
 brew libgpg-error
 brew libidn2
 brew libksba
+brew libmaxminddb
 brew libnet
+brew libnghttp2
 brew libpng
+brew libpthread-stubs
+brew libsmi
+brew libssh
 brew libtasn1
+brew libtiff
 brew libtool
 brew libunistring
 brew libusb
+brew libuv
+brew libx11
+brew libxau
+brew libxcb
+brew libxdmcp
+brew libxext
+brew libxrender
 brew libyaml
+brew little-cms2
 brew lua
+brew lzo
 brew m4
+brew marp-cli
 brew mas
+brew md4c
 brew mpdecimal
 brew ncurses
 brew nettle
 brew nghttp2
+brew node
 brew npth
+brew nspr
+brew nss
 brew nushell
 brew oniguruma
+brew openjpeg
 brew openssl@1.1
 brew p11-kit
+brew pcre
 brew pcre2
 brew perl
 brew pinentry
+brew pixman
 brew pkg-config
+brew poppler
 brew postgresql
+brew python@3.10
 brew python@3.9
+brew qt
 brew qt@5
 brew readline
 brew reattach-to-user-namespace
@@ -74,14 +112,18 @@ brew tree
 brew unbound
 brew utf8proc
 brew vim
-brew xpdf
+brew webp
+brew xorgproto
 brew xz
 brew zplug
+brew zstd
 
 tap homebrew/bundle
 
 tap homebrew/cask
+cask anaconda
 cask gitify
+cask wireshark
 
 tap hashicorp/tap
 
@@ -89,12 +131,13 @@ tap rcmdnk/file
 brew brew-file
 
 # App Store applications
-appstore 682658836   GarageBand  (10.4.3)
-appstore 1444383602  GoodNotes   (5.7.14)
-appstore 408981434   iMovie      (10.2.5)
-appstore 409183694   Keynote     (11.1)
-appstore 539883307   LINE        (7.0.3)
-appstore 409203825   Numbers     (11.1)
-appstore 409201541   Pages       (11.1)
-appstore 1176895641  Spark       (2.10.0)
-appstore 497799835   Xcode       (12.5.1)
+appstore 682658836   GarageBand  (10.4.4)
+appstore 1444383602  GoodNotes   (5.7.48)
+appstore 408981434   iMovie      (10.3.1)
+appstore 409183694   Keynote     (11.2)
+appstore 539883307   LINE        (7.4.1)
+appstore 409203825   Numbers     (11.2)
+appstore 409201541   Pages       (11.2)
+appstore 1176895641  Spark       (2.11.6)
+appstore 414298354   ToyViewer   (5.7.2)
+appstore 497799835   Xcode       (13.1)

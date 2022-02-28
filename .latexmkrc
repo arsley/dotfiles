@@ -2,7 +2,7 @@
 $latex            = 'docker run --rm -v $PWD:/workdir paperist/alpine-texlive-ja platex -synctex=1 -halt-on-error';
 $latex_silent     = 'docker run --rm -v $PWD:/workdir paperist/alpine-texlive-ja platex -synctex=1 -halt-on-error -interaction=batchmode';
 $bibtex           = 'pbibtex';
-$dvipdf           = 'docker run --rm -v $PWD:/workdir paperist/alpine-texlive-ja dvipdfmx %O -o %D %S';
+$dvipdf           = 'docker run --rm -v $PWD:/workdir paperist/alpine-texlive-ja dvipdfmx -f ptex-ipaex.map %O -o %D %S';
 $makeindex        = 'mendex %O -o %D %S';
 $max_repeat       = 5;
 $pdf_mode	  = 3; # generates pdf via dvipdfmx
