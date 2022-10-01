@@ -233,6 +233,7 @@ It should only modify the values of Spacemacs settings."
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes
    '(
+     deeper-blue
      ample-flat
     )
 
@@ -542,6 +543,7 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+
 )
 
 
@@ -564,14 +566,17 @@ before packages are loaded."
   (define-key evil-insert-state-map (kbd "C-c") 'evil-normal-state)
   (bind-key "C-h" 'delete-backward-char)
 
+  ;; mode line
+  (spaceline-toggle-minor-modes-off)
+
   ;; treemacs config
-  (treemacs-git-mode 'simple)
+  (treemacs-project-follow-mode t)
   (treemacs-indent-guide-mode t)
   (treemacs-git-commit-diff-mode)
+  (treemacs-indent-guide-mode t)
   (treemacs-display-current-project-exclusively)
-  (treemacs-project-follow-mode t)
+  (treemacs-git-mode 'deferred)
 )
-
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
