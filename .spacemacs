@@ -32,29 +32,20 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(ruby
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
-     ;; `M-m f e R' (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
+   '(rust
+     typescript
+     ruby
      auto-completion
-     ;; better-defaults
      emacs-lisp
      git
      helm
-     ;; lsp
+     lsp
      markdown
      multiple-cursors
-     ;; org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
-     ;; spell-checking
-     ;; syntax-checking
-     ;; version-control
-     treemacs)
-
+     treemacs
+     (vue :variables vue-backend 'lsp)
+     (shell :variable shell-default-shell 'term)
+     )
 
    ;; List of additional packages that will be installed without being wrapped
    ;; in a layer (generally the packages are installed only and should still be
@@ -261,8 +252,8 @@ It should only modify the values of Spacemacs settings."
    ;; Default font or prioritized list of fonts. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 10.0
+   dotspacemacs-default-font '("Menlo"
+                               :size 12.0
                                :weight normal
                                :width normal)
 
@@ -572,6 +563,13 @@ before packages are loaded."
   ;; personal key-binding
   (define-key evil-insert-state-map (kbd "C-c") 'evil-normal-state)
   (bind-key "C-h" 'delete-backward-char)
+
+  ;; treemacs config
+  (treemacs-git-mode 'simple)
+  (treemacs-indent-guide-mode t)
+  (treemacs-git-commit-diff-mode)
+  (treemacs-display-current-project-exclusively)
+  (treemacs-project-follow-mode t)
 )
 
 
@@ -588,7 +586,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(add-node-modules-path bundler chruby counsel-gtags counsel swiper ivy dap-mode lsp-docker lsp-treemacs bui lsp-mode enh-ruby-mode ggtags helm-gtags minitest prettier-js rake rbenv robe inf-ruby rspec-mode rubocop rubocopfmt ruby-hash-syntax ruby-refactor ruby-test-mode ruby-tools rvm seeing-is-believing birds-of-paradise-plus-theme ac-ispell auto-complete auto-yasnippet forge yaml ghub closql emacsql-sqlite emacsql treepy fuzzy gh-md git-link git-messenger git-modes git-timemachine gitignore-templates helm-c-yasnippet helm-company company helm-git-grep helm-ls-git markdown-toc markdown-mode mmm-mode smeargle treemacs-magit magit magit-section git-commit with-editor transient yasnippet-snippets yasnippet ace-jump-helm-line ace-link aggressive-indent auto-compile packed auto-highlight-symbol centered-cursor-mode clean-aindent-mode column-enforce-mode define-word devdocs dired-quick-sort drag-stuff dumb-jump editorconfig elisp-def elisp-slime-nav emr clang-format list-utils eval-sexp-fu evil-anzu anzu evil-args evil-cleverparens paredit evil-collection annalist evil-easymotion evil-ediff evil-escape evil-exchange evil-goggles evil-iedit-state iedit evil-indent-plus evil-lion evil-lisp-state evil-matchit evil-mc evil-nerd-commenter evil-numbers evil-surround evil-textobj-line evil-tutor evil-unimpaired evil-visual-mark-mode evil-visualstar expand-region eyebrowse fancy-battery flx-ido flycheck-elsa flycheck-package package-lint flycheck golden-ratio google-translate helm-ag helm-descbinds helm-flx flx helm-make helm-mode-manager helm-org helm-projectile helm-purpose helm-swoop helm-themes helm-xref helm helm-core help-fns+ hide-comnt highlight-indentation highlight-numbers parent-mode highlight-parentheses hl-todo compat hungry-delete indent-guide info+ inspector link-hint lorem-ipsum macrostep multi-line shut-up nameless open-junk-file org-superstar overseer f pkg-info epl paradox spinner password-generator popup popwin quickrun rainbow-delimiters request restart-emacs smartparens space-doc spaceline-all-the-icons memoize spaceline all-the-icons powerline spacemacs-purpose-popwin spacemacs-whitespace-cleanup string-edit string-inflection symbol-overlay symon term-cursor toc-org treemacs-evil treemacs-icons-dired treemacs-persp persp-mode treemacs-projectile treemacs projectile cfrs ht pfuture ace-window avy posframe s undo-tree queue uuidgen vi-tilde-fringe vim-powerline volatile-highlights window-purpose imenu-list winum dash writeroom-mode visual-fill-column ws-butler async bind-map diminish dotenv-mode evil-evilified-state font-lock+ holy-mode hybrid-mode evil goto-chg hydra lv pcre2el use-package bind-key which-key)))
+   '(esh-help eshell-prompt-extras eshell-z multi-term shell-pop terminal-here vterm xterm-color company-web web-completion-data helm-css-scss impatient-mode htmlize pug-mode sass-mode haml-mode scss-mode slim-mode tagedit flycheck-pos-tip origami tern cargo flycheck-rust racer pos-tip ron-mode rust-mode toml-mode emmet-mode import-js grizzl typescript-mode web-mode add-node-modules-path bundler chruby counsel-gtags counsel swiper ivy dap-mode lsp-docker lsp-treemacs bui lsp-mode enh-ruby-mode ggtags helm-gtags minitest prettier-js rake rbenv robe inf-ruby rspec-mode rubocop rubocopfmt ruby-hash-syntax ruby-refactor ruby-test-mode ruby-tools rvm seeing-is-believing birds-of-paradise-plus-theme ac-ispell auto-complete auto-yasnippet forge yaml ghub closql emacsql-sqlite emacsql treepy fuzzy gh-md git-link git-messenger git-modes git-timemachine gitignore-templates helm-c-yasnippet helm-company company helm-git-grep helm-ls-git markdown-toc markdown-mode mmm-mode smeargle treemacs-magit magit magit-section git-commit with-editor transient yasnippet-snippets yasnippet ace-jump-helm-line ace-link aggressive-indent auto-compile packed auto-highlight-symbol centered-cursor-mode clean-aindent-mode column-enforce-mode define-word devdocs dired-quick-sort drag-stuff dumb-jump editorconfig elisp-def elisp-slime-nav emr clang-format list-utils eval-sexp-fu evil-anzu anzu evil-args evil-cleverparens paredit evil-collection annalist evil-easymotion evil-ediff evil-escape evil-exchange evil-goggles evil-iedit-state iedit evil-indent-plus evil-lion evil-lisp-state evil-matchit evil-mc evil-nerd-commenter evil-numbers evil-surround evil-textobj-line evil-tutor evil-unimpaired evil-visual-mark-mode evil-visualstar expand-region eyebrowse fancy-battery flx-ido flycheck-elsa flycheck-package package-lint flycheck golden-ratio google-translate helm-ag helm-descbinds helm-flx flx helm-make helm-mode-manager helm-org helm-projectile helm-purpose helm-swoop helm-themes helm-xref helm helm-core help-fns+ hide-comnt highlight-indentation highlight-numbers parent-mode highlight-parentheses hl-todo compat hungry-delete indent-guide info+ inspector link-hint lorem-ipsum macrostep multi-line shut-up nameless open-junk-file org-superstar overseer f pkg-info epl paradox spinner password-generator popup popwin quickrun rainbow-delimiters request restart-emacs smartparens space-doc spaceline-all-the-icons memoize spaceline all-the-icons powerline spacemacs-purpose-popwin spacemacs-whitespace-cleanup string-edit string-inflection symbol-overlay symon term-cursor toc-org treemacs-evil treemacs-icons-dired treemacs-persp persp-mode treemacs-projectile treemacs projectile cfrs ht pfuture ace-window avy posframe s undo-tree queue uuidgen vi-tilde-fringe vim-powerline volatile-highlights window-purpose imenu-list winum dash writeroom-mode visual-fill-column ws-butler async bind-map diminish dotenv-mode evil-evilified-state font-lock+ holy-mode hybrid-mode evil goto-chg hydra lv pcre2el use-package bind-key which-key)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
