@@ -125,3 +125,5 @@ fi
 # modify default Brewfile path
 export HOMEBREW_BREWFILE=$HOME/.brewfile
 
+# direnv hook
+eval "$(direnv hook zsh)"

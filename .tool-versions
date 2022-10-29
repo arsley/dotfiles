@@ -3,3 +3,4 @@ yarn 1.22.19
 ruby 3.1.2
 crystal 0.34.0
 python 3.8.9
+direnv 2.32.1
