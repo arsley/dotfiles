@@ -2,9 +2,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git asdf)
-
-# User configuration
+plugins=(git asdf) # User configuration
 export PATH="/usr/local/var:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 typeset -U path cdpath fpath manpath
 export MANPATH="/usr/local/man:$MANPATH"
@@ -100,13 +98,8 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 # alias terraform cmd
 alias t=terraform
 
-# enable brew-file wrapper
-if [ -f $(brew --prefix)/etc/brew-wrap ];then
-  source $(brew --prefix)/etc/brew-wrap
-fi
-
-# modify default Brewfile path
-export HOMEBREW_BREWFILE=$HOME/.brewfile
+# brew bundle location
+export HOMEBREW_BUNDLE_FILE=$HOME/.brewfile
 
 # direnv hook
 eval "$(direnv hook zsh)"
