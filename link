@@ -1,5 +1,23 @@
 #!/bin/sh
 
-for dotfile in `find .* -maxdepth 0 -type f`; do
-  ln -sf `pwd`/$dotfile $HOME;
-done
+case $1 in
+  dotfile)
+    # create synbolic link to ~/ for dotfiles
+    for dotfile in `find .* -maxdepth 0 -type f`; do
+      ln -sf `pwd`/$dotfile $HOME;
+    done
+    ;;
+  nvim)
+    # create synbolic link to ~/.config/nvim for nvim/
+    ln -sf `pwd`/nvim $HOME/.config/nvim
+    ;;
+  unlink)
+    for dotfile in `find .* -maxdepth 0 -type f`; do
+      unlink $HOME/$dotfile;
+    done
+    unlink $HOME/.config/nvim
+    ;;
+  *)
+    echo 'Usage: link dotfile|nvim'
+    ;;
+esac
