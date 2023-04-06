@@ -21,10 +21,9 @@ let mapleader = ","
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" bufferline
+" vim-airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-let g:airlinentheme='wombat'
 
 " 'gc' to comment/uncomment
 Plug 'tpope/vim-commentary'
@@ -42,6 +41,9 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
 
+Plug 'windwp/nvim-autopairs'
+Plug 'ntpeters/vim-better-whitespace'
+
 call plug#end()
 " --- vim-plug ---
 
@@ -52,13 +54,6 @@ colorscheme gruvbox
 set updatetime=500
 
 " --- coc-nvim ---
-" Use <c-space> to trigger completion
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -84,8 +79,15 @@ endfunction
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>fr  <Plug>(coc-format-selected)
+nmap <leader>fr  <Plug>(coc-format-selected)
+
+" Use tab for trigger completion with characters ahead and navigate
+inoremap <silent><expr> <TAB>
+    \ coc#pum#visible() ? coc#pum#next(1) :
+    \ CheckBackspace() ? "\<Tab>" :
+    \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 " --- coc-nvim ---
 
 " --- telescope ---
@@ -93,7 +95,28 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-" --- telescope ---
 
 " --- nvim-tree ---
 luado require("nvim-tree").setup()
+
+" --- nvim-autopairs ---
+luado require("nvim-autopairs").setup({})
+
+" --- vim-better-whitespace ---
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+let g:strip_whitespace_confirm=0
+
+" --- display hidden chars ---
+" ref: https://askubuntu.com/a/74503
+set listchars=eol:↓,tab:>-,trail:~,extends:>,precedes:<
+set list
+
+" --- vim-airline ---
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='molokai'
+
+" switch buffers
+nmap <C-h> <Plug>AirlineSelectPrevTab
+nmap <C-l> <Plug>AirlineSelectNextTab
+" --- vim-airline ---
