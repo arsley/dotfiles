@@ -43,6 +43,7 @@ Plug 'nvim-tree/nvim-web-devicons'
 
 Plug 'windwp/nvim-autopairs'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 call plug#end()
 " --- vim-plug ---
@@ -82,12 +83,6 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>fr  <Plug>(coc-format-selected)
 nmap <leader>fr  <Plug>(coc-format-selected)
 
-" Use tab for trigger completion with characters ahead and navigate
-inoremap <silent><expr> <TAB>
-    \ coc#pum#visible() ? coc#pum#next(1) :
-    \ CheckBackspace() ? "\<Tab>" :
-    \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 " --- coc-nvim ---
 
 " --- telescope ---
@@ -120,3 +115,12 @@ let g:airline_theme='molokai'
 nmap <C-h> <Plug>AirlineSelectPrevTab
 nmap <C-l> <Plug>AirlineSelectNextTab
 " --- vim-airline ---
+
+" --- indent-blankline ---
+" MEMO: is this the best way to exec multiline lua script?
+lua << EOF
+  require("indent_blankline").setup({
+    show_current_context = true,
+    show_current_context_start = true,
+  })
+EOF
