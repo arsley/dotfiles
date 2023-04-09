@@ -17,6 +17,9 @@ set ignorecase!
 
 let mapleader = ","
 
+" reload init.vim
+nnoremap <silent> <Leader><Leader> :source $MYVIMRC<CR>
+
 " --- vim-plug ---
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -24,11 +27,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " vim-airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-" 'gc' to comment/uncomment
-Plug 'tpope/vim-commentary'
-
-Plug 'airblade/vim-gitgutter'
 
 " theme
 Plug 'ellisonleao/gruvbox.nvim'
@@ -41,6 +39,9 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
 
+" utilities
+Plug 'tpope/vim-commentary'
+Plug 'airblade/vim-gitgutter'
 Plug 'windwp/nvim-autopairs'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'lukas-reineke/indent-blankline.nvim'
@@ -51,10 +52,30 @@ call plug#end()
 set background=dark
 colorscheme gruvbox
 
-" vim-gitgutter
+" --- vim-gitgutter ---
 set updatetime=500
+let g:gitgutter_highlight_linenrs = 1
+
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+nmap ghs <Plug>(GitGutterStageHunk)
+nmap ghu <Plug>(GitGutterUndoHunk)
+nmap ghp <Plug>(GitGutterPreviewHunk)
+" --- vim-gitgutter ---
 
 " --- coc-nvim ---
+" configurations
+let g:coc_node_path = '$HOME/.asdf/shims/node'
+
+" extensions
+let g:coc_global_extensions = [
+    \'coc-tsserver',
+    \'coc-json',
+    \'@yaegassy/coc-volar-tools',
+    \'coc-eslint',
+    \'coc-prettier'
+  \]
+
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -77,22 +98,22 @@ function! ShowDocumentation()
 endfunction
 
 " Symbol renaming
-nmap <leader>rn <Plug>(coc-rename)
+nmap <Leader>rn <Plug>(coc-rename)
 
 " Formatting selected code
-xmap <leader>fr  <Plug>(coc-format-selected)
-nmap <leader>fr  <Plug>(coc-format-selected)
-
+xmap <Leader>fo <Plug>(coc-format-selected)
+nmap <Leader>fo <Plug>(coc-format-selected)
 " --- coc-nvim ---
 
 " --- telescope ---
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <Leader>ff <CMD>Telescope find_files<CR>
+nnoremap <Leader>fg <CMD>Telescope live_grep<CR>
+nnoremap <Leader>fb <CMD>Telescope buffers<CR>
+nnoremap <Leader>fh <CMD>Telescope help_tags<CR>
 
 " --- nvim-tree ---
 luado require("nvim-tree").setup()
+nnoremap <Leader>ft <CMD>NvimTreeToggle <CR>
 
 " --- nvim-autopairs ---
 luado require("nvim-autopairs").setup({})
@@ -110,6 +131,12 @@ set list
 " --- vim-airline ---
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='molokai'
+
+let g:airline#extensions#default#layout = [
+    \['a', 'b', 'c'],
+    \['x', 'y', 'error', 'warning'],
+  \]
+" --- vim-airline ---
 
 " switch buffers
 nmap <C-h> <Plug>AirlineSelectPrevTab
