@@ -71,6 +71,7 @@ let g:coc_node_path = '$HOME/.asdf/shims/node'
 let g:coc_global_extensions = [
     \'coc-tsserver',
     \'coc-json',
+    \'@yaegassy/coc-volar',
     \'@yaegassy/coc-volar-tools',
     \'coc-eslint',
     \'coc-prettier'
