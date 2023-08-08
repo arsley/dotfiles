@@ -5,4 +5,4 @@ crystal 0.34.0
 python 3.8.9
 direnv 2.32.1
 golang 1.19.3
-pnpm 7.25.0
+pnpm 8.6.12
