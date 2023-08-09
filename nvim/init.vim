@@ -1,5 +1,36 @@
+" --- vim-plug ---
+call plug#begin()
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" vim-airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" theme
+Plug 'ellisonleao/gruvbox.nvim'
+
+" fuzzy-finder
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+
+" filetree
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons'
+
+" utilities
+Plug 'tpope/vim-commentary'
+Plug 'airblade/vim-gitgutter'
+Plug 'windwp/nvim-autopairs'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'kylechui/nvim-surround'
+
+call plug#end()
+" --- vim-plug ---
+
 if exists('g:vscode')
   " --- VSCode extension
+  lua require('nvim-surround').setup()
 else
   set encoding=utf-8
   set number
@@ -22,35 +53,6 @@ else
 
   " reload init.vim
   nnoremap <silent> <Leader><Leader> :source $MYVIMRC<CR>
-
-  " --- vim-plug ---
-  call plug#begin()
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-  " vim-airline
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
-
-  " theme
-  Plug 'ellisonleao/gruvbox.nvim'
-
-  " fuzzy-finder
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
-
-  " filetree
-  Plug 'nvim-tree/nvim-tree.lua'
-  Plug 'nvim-tree/nvim-web-devicons'
-
-  " utilities
-  Plug 'tpope/vim-commentary'
-  Plug 'airblade/vim-gitgutter'
-  Plug 'windwp/nvim-autopairs'
-  Plug 'ntpeters/vim-better-whitespace'
-  Plug 'lukas-reineke/indent-blankline.nvim'
-
-  call plug#end()
-  " --- vim-plug ---
 
   set background=dark
   colorscheme gruvbox
