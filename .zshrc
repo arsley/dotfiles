@@ -19,6 +19,7 @@ fpath=(/usr/local/share/zsh/site-functions $fpath)
 
 # asdf completion
 fpath=(${ASDF_DIR}/completions $fpath)
+export ASDF_GOLANG_MOD_VERSION_ENABLED=true
 
 # initialise completions with ZSH's compinit
 autoload -Uz compinit
