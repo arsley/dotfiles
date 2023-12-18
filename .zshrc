@@ -104,3 +104,6 @@ export HOMEBREW_BUNDLE_FILE=$HOME/.brewfile
 
 # direnv hook
 eval "$(direnv hook zsh)"
+
+# dart SDK
+export PATH="/usr/local/opt/dart/libexec:$PATH"
