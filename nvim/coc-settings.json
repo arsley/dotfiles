@@ -1,4 +1,0 @@
-{
-  "suggest.noselect": true,
-  "npm.binPath": "$HOME/.asdf/shims/npm"
-}

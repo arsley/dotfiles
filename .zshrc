@@ -32,39 +32,11 @@ source $ZSH/oh-my-zsh.sh
 setopt extended_glob
 
 # utils
-
-# `go build`
-function bo() { go build . }
-
-# `bundle ...`
-alias b=bundle
-
-# `bundle exec`
-function be() { bundle exec $* }
-
-# `bundle exec rails`
-function ber() { bundle exec rails $* }
-
-# `bundle exec rspec`
-function bers() { bundle exec rspec $* }
-
-# `make ...`
-function m() { make $* }
-
 # `docker ...`
 function dc() { docker $* }
 
 # `docker compose ...`
 function dcc() { docker compose $* }
-
-# `vim ...`
-alias v=/usr/local/bin/vim
-
-# `clear`
-alias c=clear
-
-# `exit`
-alias e=exit
 
 # HSTR configuration - add this to ~/.bashrc
 alias h=hstr
@@ -76,7 +48,7 @@ bindkey -s "\C-r" "hstr --\n"
 export PKG_CONFIG_PATH='/usr/local/opt/openssl/lib/pkgconfig'
 
 # delete merged branches
-function git-delm() {
+function delmerged() {
   git branch --merged|egrep -v '\*|develop|master'|xargs git branch -d
 }
 
@@ -90,14 +62,8 @@ if [ -f '/Users/arsley/.google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/a
 alias kcl=kubectl
 alias kcx=kubectx
 
-# alias just
-alias j=just
-
 # enable completation for terraform cmd
 complete -o nospace -C /usr/local/bin/terraform terraform
-
-# alias terraform cmd
-alias t=terraform
 
 # brew bundle location
 export HOMEBREW_BUNDLE_FILE=$HOME/.brewfile
@@ -105,5 +71,8 @@ export HOMEBREW_BUNDLE_FILE=$HOME/.brewfile
 # direnv hook
 eval "$(direnv hook zsh)"
 
-# dart SDK
-export PATH="/usr/local/opt/dart/libexec:$PATH"
+# flutter SDK
+export PATH="$HOME/.flutter/flutter/bin:$PATH"
+
+# rust
+. "$HOME/.cargo/env"
