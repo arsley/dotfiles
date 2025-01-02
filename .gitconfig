@@ -9,8 +9,6 @@
   editor = vi
 [alias]
   unstage = "reset HEAD"
-  cm = commit
-  cko = checkout
   br = branch
   cne = "commit --amend --no-edit"
   cam = "commit --amend"

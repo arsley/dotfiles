@@ -38,32 +38,20 @@ function dc() { docker $* }
 # `docker compose ...`
 function dcc() { docker compose $* }
 
-# HSTR configuration - add this to ~/.bashrc
-alias h=hstr
-export HISTFILE=~/.zsh_history
-export HSTR_CONFIG=hicolor,raw-history-view
-bindkey -s "\C-r" "hstr --\n"
+# HSTR configuration - add this to ~/.zshrc
+alias hh=hstr                    # hh to be alias for hstr
+setopt histignorespace           # skip cmds w/ leading space from history
+export HSTR_CONFIG=hicolor       # get more colors
+bindkey -s "\C-r" "\C-a hstr -- \C-j"     # bind hstr to Ctrl-r (for Vi mode check doc)
+export HSTR_TIOCSTI=y
 
 # openssl pkg-config path
 export PKG_CONFIG_PATH='/usr/local/opt/openssl/lib/pkgconfig'
 
 # delete merged branches
 function delmerged() {
-  git branch --merged|egrep -v '\*|develop|master'|xargs git branch -d
+  git branch --merged|egrep -v '\*|develop|master|main'|xargs git branch -d
 }
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/arsley/.google-cloud-sdk/path.zsh.inc' ]; then . '/Users/arsley/.google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/arsley/.google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/arsley/.google-cloud-sdk/completion.zsh.inc'; fi
-
-# `kube ...`
-alias kcl=kubectl
-alias kcx=kubectx
-
-# enable completation for terraform cmd
-complete -o nospace -C /usr/local/bin/terraform terraform
 
 # brew bundle location
 export HOMEBREW_BUNDLE_FILE=$HOME/.brewfile
@@ -71,8 +59,5 @@ export HOMEBREW_BUNDLE_FILE=$HOME/.brewfile
 # direnv hook
 eval "$(direnv hook zsh)"
 
-# flutter SDK
-export PATH="$HOME/.flutter/flutter/bin:$PATH"
-
-# rust
-. "$HOME/.cargo/env"
+# doom emacs
+export PATH="$HOME/.emacs.d/bin:$PATH"

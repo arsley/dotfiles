@@ -1,0 +1,1 @@
+/Users/arsley/dotfiles/.doom.d

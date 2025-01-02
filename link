@@ -1,23 +1,12 @@
-#!/bin/sh
+#!/bin/bash -x
+# create synbolic link to ~/ for dotfiles
+# memo: use `unlink` to delete symlink
 
-case $1 in
-  dotfile)
-    # create synbolic link to ~/ for dotfiles
-    for dotfile in `find .* -maxdepth 0 -type f`; do
-      ln -sf `pwd`/$dotfile $HOME;
-    done
-    ;;
-  nvim)
-    # create synbolic link to ~/.config/nvim for nvim/
-    ln -sf `pwd`/nvim $HOME/.config/nvim
-    ;;
-  unlink)
-    for dotfile in `find .* -maxdepth 0 -type f`; do
-      unlink $HOME/$dotfile;
-    done
-    unlink $HOME/.config/nvim
-    ;;
-  *)
-    echo 'Usage: link dotfile|nvim'
-    ;;
-esac
+files=`find .* -maxdepth 0 -type f`
+dir=`pwd`
+
+for f in $files; do
+  ln -sf $dir/$f $HOME;
+done
+
+ln -sf $dir/.doom.d $HOME/.doom.d
