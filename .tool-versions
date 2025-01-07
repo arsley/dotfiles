@@ -6,3 +6,4 @@ python 3.8.9
 direnv 2.32.1
 golang 1.21.0
 pnpm 8.6.12
+lein 2.11.2
