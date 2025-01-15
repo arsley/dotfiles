@@ -2,8 +2,16 @@ export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git asdf) # User configuration
-export PATH="/usr/local/var:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+plugins=(git asdf)
+path=(
+  "/usr/local/var"
+  "/usr/local/sbin"
+  "/usr/local/bin"
+  "/usr/bin"
+  "/bin"
+  "/usr/sbin"
+  "/sbin"
+)
 typeset -U path cdpath fpath manpath
 export MANPATH="/usr/local/man:$MANPATH"
 
@@ -31,15 +39,13 @@ source $ZSH/oh-my-zsh.sh
 # nice wildcards (negation is ^)
 setopt extended_glob
 
-# utils
-# `docker ...`
-function dc() { docker $* }
+# docker
+dc() { docker "$@" }
 
-# `docker compose ...`
-function dcc() { docker compose $* }
+# docker compose
+dcc() { docker compose "$@" }
 
-# HSTR configuration - add this to ~/.zshrc
-alias hh=hstr                    # hh to be alias for hstr
+# HSTR configuration
 setopt histignorespace           # skip cmds w/ leading space from history
 export HSTR_CONFIG=hicolor       # get more colors
 bindkey -s "\C-r" "\C-a hstr -- \C-j"     # bind hstr to Ctrl-r (for Vi mode check doc)
@@ -61,3 +67,9 @@ eval "$(direnv hook zsh)"
 
 # doom emacs
 export PATH="$HOME/.emacs.d/bin:$PATH"
+
+# rust
+. "$HOME/.cargo/env"
+
+# set default permissions
+umask 022
