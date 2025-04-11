@@ -1,9 +1,1 @@
-nodejs 18.17.0
-yarn 1.22.19
-ruby 3.1.2
-crystal 0.34.0
-python 3.8.9
-direnv 2.32.1
-golang 1.21.0
-pnpm 8.6.12
-lein 2.11.2
+deno 2.2.8

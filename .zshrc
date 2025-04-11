@@ -25,10 +25,6 @@ setopt share_history
 # about completion
 fpath=(/usr/local/share/zsh/site-functions $fpath)
 
-# asdf completion
-fpath=(${ASDF_DIR}/completions $fpath)
-export ASDF_GOLANG_MOD_VERSION_ENABLED=true
-
 # initialise completions with ZSH's compinit
 autoload -Uz compinit
 compinit
@@ -38,12 +34,6 @@ source $ZSH/oh-my-zsh.sh
 
 # nice wildcards (negation is ^)
 setopt extended_glob
-
-# docker
-dc() { docker "$@" }
-
-# docker compose
-dcc() { docker compose "$@" }
 
 # HSTR configuration
 setopt histignorespace           # skip cmds w/ leading space from history
@@ -61,15 +51,6 @@ function delmerged() {
 
 # brew bundle location
 export HOMEBREW_BUNDLE_FILE=$HOME/.brewfile
-
-# direnv hook
-eval "$(direnv hook zsh)"
-
-# doom emacs
-export PATH="$HOME/.emacs.d/bin:$PATH"
-
-# rust
-. "$HOME/.cargo/env"
 
 # set default permissions
 umask 022
